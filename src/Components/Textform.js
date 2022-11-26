@@ -16,8 +16,6 @@ export default function Textform(props) {
         setText(text.toLowerCase());
     }
 
-    // const [words, setWords]=useState(text.length);
-    // const [letters,setLetters]=useState(text.trim(' ').length)
     
     const TitleCase = ()=>{
       let lowercase = text.toLowerCase();
@@ -67,7 +65,16 @@ export default function Textform(props) {
     element.download = "myFile.txt";
     element.click();
 }
-
+   
+const copyContent = async () => {
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log('Content copied to clipboard');
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
+}
+   
   return (
     <>
     <div className={`container `}>
@@ -81,6 +88,7 @@ export default function Textform(props) {
          <button className='bg-primary m-2 p-1 text-light' onClick={ToClear}>Clear</button>
          <button className='bg-primary m-2 p-1 text-light' onClick={handleReverse}>Reverse Text</button>
          <button className='bg-primary m-2 p-1 text-light' onClick={downloadTxtFile}>Download Text</button>
+         <button className='bg-primary m-2 p-1 text-light' onClick={copyContent}>Copy Text</button>
 
 
       </div>
