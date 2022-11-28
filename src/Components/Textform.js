@@ -10,10 +10,12 @@ export default function Textform(props) {
     
     let ToUpper=()=>{
       setText( text.toUpperCase()); 
+      props.showalert('Text capatalized','Success')
     }
 
     let ToLower=()=>{
         setText(text.toLowerCase());
+        props.showalert('Text Converted','Success')
     }
 
     
@@ -25,6 +27,7 @@ export default function Textform(props) {
     });
     let newText = newWords.join(" ");
     setText(newText);
+    props.showalert('Text Converted','Success')
     }
 
     const handleSentenceCaseClick = () => {
@@ -40,10 +43,12 @@ export default function Textform(props) {
         .join("");
   
       setText(newText);
+      props.showalert('Text Converted','Success')
     };
     
     let ToClear=()=>{
       setText('');
+      props.showalert('Text Cleared','Success')
   }
 
   const handleReverse = (event) => {
@@ -54,6 +59,7 @@ export default function Textform(props) {
     /* Convert array to string*/
     let newText = strArr.join("");
     setText(newText);
+    props.showalert('Text Reversed','Success')
   };
 
   const downloadTxtFile = () => {
@@ -64,6 +70,7 @@ export default function Textform(props) {
     element.href = URL.createObjectURL(file);
     element.download = "myFile.txt";
     element.click();
+    props.showalert('Text file downloaded','Success')
 }
    
 const copyContent = async () => {
@@ -73,6 +80,7 @@ const copyContent = async () => {
   } catch (err) {
     console.error('Failed to copy: ', err);
   }
+  props.showalert('Text Copied','Success')
 }
    
   return (
@@ -95,7 +103,7 @@ const copyContent = async () => {
     </div>
     <div className='container'>
         <h4>Text Summary</h4>
-        <p>{text.split(' ').length} words and {text.length} Letters</p>
+        <p>{text.split(' ').filter((element)=>{return element.length!==0}).length} words and {text.length} Letters</p>
         <p>{0.008 * text.length}  Minutes to read this para</p>
         <h4>Preview</h4>
         <p>{text}</p>
