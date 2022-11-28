@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Resource() {
+export default function Resource(props) {
   return (
-    <div className='container'>
+    <div className='container mt-4'>
       <div className="accordion" id="accordionPanelsStayOpenExample">
-  <div className="accordion-item">
+  <div className={`accordion-item bg-${props.darkmode==='light'?'light':'dark'} text-${props.darkmode==='light'?'dark':'light'}`}>
     <h2 className="accordion-header" id="panelsStayOpen-headingOne">
-      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+      <button className={`accordion-button bg-${props.darkmode==='light'?'light':'dark'} text-${props.darkmode==='light'?'dark':'light'}`}  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
         Accordion Item #1
       </button>
     </h2>
@@ -16,9 +16,13 @@ export default function Resource() {
       </div>
     </div>
   </div>
-  <div className="accordion-item">
+
+
+
+  
+  <div className={`accordion-item bg-${props.darkmode==='light'?'light':'dark'} text-${props.darkmode==='light'?'dark':'light'}`}>
     <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
-      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+      <button className={`accordion-button bg-${props.darkmode==='light'?'light':'dark'} text-${props.darkmode==='light'?'dark':'light'}`} collapsed='true'  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
         Accordion Item #2
       </button>
     </h2>
@@ -28,9 +32,9 @@ export default function Resource() {
       </div>
     </div>
   </div>
-  <div className="accordion-item">
+  <div className={`accordion-item bg-${props.darkmode==='light'?'light':'dark'} text-${props.darkmode==='light'?'dark':'light'}`}>
     <h2 className="accordion-header" id="panelsStayOpen-headingThree">
-      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button className={`accordion-button bg-${props.darkmode==='light'?'light':'dark'} text-${props.darkmode==='light'?'dark':'light'}`}  type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
         Accordion Item #3
       </button>
     </h2>

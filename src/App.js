@@ -52,7 +52,7 @@ function App() {
     <Alert alert={alert} />
     <Routes>
       <Route path='/' element={<Textform showalert={showalert} darkmode={Dmode} Tmode={Textmode}/>}/>
-      <Route path='/Components/Resource' element={<Resource />}/>
+      <Route path='/Components/Resource' element={<Resource darkmode={Dmode} />}/>
     </Routes>
     </BrowserRouter>
 

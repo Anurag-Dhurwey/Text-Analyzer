@@ -86,24 +86,24 @@ const copyContent = async () => {
   return (
     <>
     <div className={`container `}>
-        <h3 className='text-center mt-5'>Enter your desired Text</h3>
+        <h3 className='text-center mt-2'>Enter your desired Text</h3>
       <div className="form-floating">
          <textarea className={`form-control bg-${props.darkmode} text-${props.Tmode}`}   value={text} placeholder="Leave a comment here" onChange={handleOnChange} id="floatingTextarea2" style={{height: '300px'}}></textarea>
-         <button className='bg-primary m-2 p-1 text-light' onClick={ToUpper}>Convert to Uppercase</button>
-         <button className='bg-primary m-2 p-1 text-light' onClick={ToLower}>Convert to Lowercase</button>
-         <button className="bg-primary m-2 p-1 text-light" onClick={TitleCase}> Title case</button>
-         <button className="bg-primary m-2 p-1 text-light" onClick={handleSentenceCaseClick}> Sentence case</button>
-         <button className='bg-primary m-2 p-1 text-light' onClick={ToClear}>Clear</button>
-         <button className='bg-primary m-2 p-1 text-light' onClick={handleReverse}>Reverse Text</button>
-         <button className='bg-primary m-2 p-1 text-light' onClick={downloadTxtFile}>Download Text</button>
-         <button className='bg-primary m-2 p-1 text-light' onClick={copyContent}>Copy Text</button>
+         <button disabled={text.length===0} className='bg-primary m-2 p-1 text-light' onClick={ToUpper}>Convert to Uppercase</button>
+         <button disabled={text.length===0} className='bg-primary m-2 p-1 text-light' onClick={ToLower}>Convert to Lowercase</button>
+         <button disabled={text.length===0} className="bg-primary m-2 p-1 text-light" onClick={TitleCase}> Title case</button>
+         <button disabled={text.length===0} className="bg-primary m-2 p-1 text-light" onClick={handleSentenceCaseClick}> Sentence case</button>
+         <button disabled={text.length===0} className='bg-primary m-2 p-1 text-light' onClick={ToClear}>Clear</button>
+         <button disabled={text.length===0} className='bg-primary m-2 p-1 text-light' onClick={handleReverse}>Reverse Text</button>
+         <button disabled={text.length===0} className='bg-primary m-2 p-1 text-light' onClick={downloadTxtFile}>Download Text</button>
+         <button disabled={text.length===0} className='bg-primary m-2 p-1 text-light' onClick={copyContent}>Copy Text</button>
 
 
       </div>
     </div>
     <div className='container'>
         <h4>Text Summary</h4>
-        <p>{text.split(' ').filter((element)=>{return element.length!==0}).length} words and {text.length} Letters</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} Letters</p>
         <p>{0.008 * text.length}  Minutes to read this para</p>
         <h4>Preview</h4>
         <p>{text}</p>
